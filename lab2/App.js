@@ -5,6 +5,9 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.onPress = this.onPress.bind(this);
+    this.state={
+      nameValidate: true,
+    }
   }
   onChange(event) {
     console.log(event);
@@ -13,10 +16,27 @@ export default class App extends React.Component {
   onPress() {
     console.log("Pressed");
   }
+
+  validate(text, type) {
+    alph=/^[a-zA-Z]+$/
+    if(type=='name') {
+      if(alph.test(text)) {
+        this.setState({
+          nameValidate:true,
+        })
+      }
+      else {
+        this.setState({
+          nameValidate:false,
+        })
+      }
+    }
+  }
+
   render() {
     return (
       <View style={styles.container} flexDirection="column" alignItems='stretch'>
-        <View><TextInput style={styles.textInput} onChangeText={this.onChange} placeholder="Enter your name"></TextInput></View>
+        <View><TextInput style={[styles.textInput,!this.state.nameValidate? styles.error:null]} onChangeText={this.onChange} onChangeText={(text)=>this.validate(text, 'name')} placeholder="Enter your name"></TextInput></View>
         <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}><Text style={styles.buttonText}>Submit</Text></TouchableOpacity>
       </View>
     );
@@ -34,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor:'blue',
-    height:75,
+    height:90,
     margin:30,
   },
   textInput:
@@ -52,5 +72,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  error: {
+    borderWidth: 3,
+    borderColor: 'red',
   },
 });
