@@ -283,9 +283,12 @@ class WeatherProject extends Component {
             <LocationButton onGetCoords={this._getForecastForCoords} />
           </View>
           <View style={styles.row}>
-            <Button onPress={this.checkMultiPermissions} label="Choose Image"></Button>
+            <Button onPress={(this.checkMultiPermissions)} label="Upload Image"></Button>
           </View>
 
+          <View style={styles.row}>
+            <Button onPress={this.doAsyncWork} label="Settings"></Button>
+          </View>
 
 
 
@@ -320,7 +323,3 @@ const styles = StyleSheet.create({
 });
 
 export default WeatherProject;
-
-//<View style={styles.row}>
-//  <Button onPress={this.doAsyncWork} label="Do Async Work"></Button>
-//</View>
