@@ -2,6 +2,14 @@ import React from 'react';
 import Expo from 'expo';
 import { Button } from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
+import {
+    StyleSheet,
+    Text,
+    View,
+    ImageBackground
+} from 'react-native';
+
+import MenuButtons from '../components/AppComponents/MenuButtons';
 
 export default class Settings extends React.Component {
   static navigationOptions = {
@@ -10,6 +18,64 @@ export default class Settings extends React.Component {
 
   render () {
     const {navigate} = this.props.navigation;
-    return <Button title="Back" onPress ={() => navigate('HomeScreen')} />
+    return (
+
+      <ImageBackground
+        source={require("../assets/images/settingsback.png")} style={styles.container}>
+        <View style={styles.top}>
+          <Text style={styles.header}>S E T T I N G S</Text>
+        </View>
+
+
+        <View style={styles.menuContainer}>
+          <MenuButtons />
+          <MenuButtons />
+          <MenuButtons />
+        </View>
+
+        <View style={styles.footer}>
+          <Text style={styles.footer}>(Swipe right from edge to go back)</Text>
+        </View>
+      </ImageBackground>
+
+
+   );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    width: '100%',
+    height: '100%',
+  },
+  top: {
+    height: '50%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    color: '#fff',
+    backgroundColor: 'rgba(255,255,255, .1)',
+    fontSize: 28,
+    borderColor: '#fff',
+    borderWidth: 2,
+    padding: 20,
+    paddingRight: 40,
+    paddingLeft:40,
+  },
+  menuContainer: {
+    height: '40%',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  footer: {
+    color: '#fff',
+    fontSize: 15,
+
+    alignItems: 'center',
+    paddingBottom: 15,
+    justifyContent: 'center',
+  }
+});
