@@ -8,6 +8,7 @@ import GooglePoly from './../api/GooglePoly';
 import ApiKeys from './../constants/ApiKeys';
 import TurkeyObject from './../assets/objects/TurkeyObject.json';
 import { SearchableGooglePolyAssetList } from './../components/AppComponents';
+import { Fonts } from '../util/fonts';
 
 console.disableYellowBox = true;
 
@@ -100,12 +101,12 @@ export default class HomeScreen extends React.Component {
           arEnabled={true}
         />
 
-        <View style={{position:"absolute", bottom: 0, flex: 1, flexDirection: "row"}}>
+        <View style={{position:"absolute", bottom: 0, flex: 1, flexDirection: "row",}}>
           <View style={{flex: 1, flexDirection: "row", justifyContent: "space-between"}}>
-          <Button size={40} title="Search" backgroundColor="transparent" onPress={this.onSearchModalPress} />
-          <Button size={40} title="Add" backgroundColor="transparent" onPress={this.onAddObjectPress} />
-          <Button size={40} title="Remove" backgroundColor="transparent" onPress={this.onRemoveObjectPress} />
-          <Button size={40} title="Settings" backgroundColor="transparent" onPress={() => navigate('Settings')} />
+          <Button size={40} title="Search" color="#fff" backgroundColor="transparent" onPress={this.onSearchModalPress} />
+          <Button size={40} title="Add" color="#fff" backgroundColor="transparent" onPress={this.onAddObjectPress} />
+          <Button size={40} title="Remove" color="#fff" backgroundColor="transparent" onPress={this.onRemoveObjectPress} />
+          <Button size={40} title="Settings" color="#fff" backgroundColor="transparent" onPress={() => navigate('Settings')} />
           </View>
         </View>
 

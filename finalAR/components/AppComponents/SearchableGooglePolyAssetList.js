@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, ScrollView, Button } from 'react-native';
-import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons';
+import { StyleSheet, View, Text, TextInput, ScrollView, Button, ImageBackground } from 'react-native';
+
 import GooglePolyAsset from './GooglePolyAsset';
 
 export default class SearchableGooglePolyAssetList extends React.Component {
@@ -43,7 +43,7 @@ export default class SearchableGooglePolyAssetList extends React.Component {
         return (
             <View style={{flex:1, flexDirection: "row", alignItems: "center", marginHorizontal:10}}>
                 <View style={styles.searchContainer}>
-                    <Button title="" color="#DDDDDD" size={20} style={{paddingLeft:10, paddingRight: 3}} />
+                    <Button title="" color="#fff" size={20} style={{paddingLeft:10, paddingRight: 3}} />
                     <TextInput style={styles.searchTextInput}
                         placeholder="Search..."
                         autoCapitalize="none"
@@ -52,7 +52,7 @@ export default class SearchableGooglePolyAssetList extends React.Component {
                         onSubmitEditing={this.onSearchPress}
                     />
                 </View>
-                <Button title="Cancel" onPress={this.props.onCancelPress} />
+                <Button title="Cancel" color="#fff" onPress={this.props.onCancelPress} />
             </View>
         );
     }
@@ -105,24 +105,31 @@ export default class SearchableGooglePolyAssetList extends React.Component {
     renderLoadMoreButton() {
         return (!this.props.googlePoly.nextPageToken)
         ? <View />
-        : <Button title="Load more..." onPress={this.onLoadMorePress} />;
+        : <Button title="Load more..." color="#fff" onPress={this.onLoadMorePress} />;
     }
 
     render() {
         return (
+          <ImageBackground source={require("../../assets/images/settingsback.png")} style={styles.container}>
             <ScrollView style={{paddingTop:20}}>
                 {this.renderSearchInput()}
-                <Button title="Search" onPress={this.onSearchPress} />
+                <Button title="Search" color="#fff" onPress={this.onSearchPress} />
                 {this.renderCurrentResults()}
                 {this.renderLoadMoreButton()}
                 <View style={{paddingTop:40}} />
             </ScrollView>
+          </ImageBackground>
         );
     }
 
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        width: '100%',
+        height: '100%',
+    },
     searchContainer: {
         flex: 1,
         flexDirection: "row",
@@ -130,16 +137,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         borderColor: "#DDDDDD",
+        color: '#fff',
     },
 
     searchTextInput: {
         flex: 1,
         height:40,
+        color: '#fff',
     },
 
     noResultsText: {
         fontSize: 18,
         fontStyle: "italic",
         paddingTop: 50,
+        color: '#fff',
     }
 });

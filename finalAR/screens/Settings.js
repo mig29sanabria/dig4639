@@ -8,7 +8,7 @@ import {
     View,
     ImageBackground
 } from 'react-native';
-
+import { Fonts } from '../util/fonts';
 import MenuButtons from '../components/AppComponents/MenuButtons';
 
 export default class Settings extends React.Component {
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingRight: 40,
     paddingLeft:40,
+    //fontFamily: Fonts.pixel,
   },
   menuContainer: {
     height: '40%',
