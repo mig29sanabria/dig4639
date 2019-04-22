@@ -28,9 +28,9 @@ export default class Settings extends React.Component {
 
 
         <View style={styles.menuContainer}>
-          <MenuButtons />
-          <MenuButtons />
-          <MenuButtons />
+          <MenuButtons buttonImage={require('../assets/images/home.png')}/>
+          <MenuButtons buttonImage={require('../assets/images/settings.png')}/>
+          <MenuButtons buttonImage={require('../assets/images/infoicon.png')}/>
         </View>
 
         <View style={styles.footer}>

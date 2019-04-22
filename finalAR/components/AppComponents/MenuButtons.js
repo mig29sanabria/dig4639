@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     width: '100%',
-    borderWidth: 2,
-    borderColor: '#fff',
+    //borderWidth: 2,
+    //borderColor: '#fff',
     opacity: 0.8,
 
   }
